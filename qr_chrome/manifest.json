@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "QR Code URL Extractor",
+    "version": "1.0",
+    "description": "Reads QR codes on the screen and extracts URLs.",
+    "permissions": [
+      "activeTab",
+      "scripting"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "qr_chrome16.jpeg",
+        "48": "qr_chrome48.jpeg",
+        "128": "qr_chrome128.jpeg"
+      }
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["lib/html2canvas.min.js", "content.js"]
+      }
+    ],
+    "icons": {
+      "16": "qr_chrome16.jpeg",
+      "48": "qr_chrome48.jpeg",
+      "128": "qr_chrome128.jpeg"
+    }
+  }
+  
